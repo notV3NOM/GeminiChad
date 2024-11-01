@@ -139,30 +139,6 @@ def generate_image_sd3(prompt: str) -> str:
     )
     return path
 
-flux_client = Client("black-forest-labs/FLUX.1-dev", verbose=False)
-
-def generate_image_flux(prompt: str) -> str:
-    """Generates an Image using Flux.1 [dev] (Huggingface)
-
-    Args:
-        prompt: image prompt
-
-    Returns:
-        image_path: path of the generated image
-
-    """
-    path, _ = flux_client.predict(
-		prompt=prompt,
-		seed=0,
-		randomize_seed=True,
-		width=1024,
-		height=1024,
-		guidance_scale=7.5 if len(prompt) > 100 else 5,
-		num_inference_steps=28,
-		api_name="/infer"
-    )
-    return path
-
 # Fallback responses to be used when user input contains profanity
 with open('static/fallback_responses.txt', 'r') as file:
     fallback_responses = [line.strip() for line in file if line.strip()]
@@ -187,10 +163,8 @@ with open('static/personas.csv', 'r') as csvfile:
 class IMAGE_MODELS(Enum):
     SDXL = 'sdxl'
     SD3 = 'sd3'
-    FLUX = 'flux'
 
 IMAGE_GENERATORS = {
     IMAGE_MODELS.SDXL: generate_image_sdxl,
     IMAGE_MODELS.SD3: generate_image_sd3,
-    IMAGE_MODELS.FLUX: generate_image_flux,
 }
