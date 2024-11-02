@@ -4,7 +4,9 @@ Copyright (c) 2024 @notV3NOM
 
 See the README.md file for licensing and disclaimer information.
 """
+
 import random
+
 
 class RandomPicker:
     """
@@ -28,7 +30,7 @@ class RandomPicker:
 
         Args:
             items (list): The list of items to pick from.
-            n (int, optional): The number of picks before resetting. 
+            n (int, optional): The number of picks before resetting.
                                Defaults to len(items) if not specified.
 
         Raises:

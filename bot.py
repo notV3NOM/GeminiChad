@@ -6,6 +6,7 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 
 See the README.md file for licensing and disclaimer information.
 """
+
 import discord
 import discord.ext
 from discord import app_commands
@@ -18,6 +19,7 @@ from components.commands import setup_commands
 from components.events import setup_event_handlers
 
 reminder_manager = ReminderManager()
+
 
 class MyClient(discord.Client):
     def __init__(self, *, intents: discord.Intents):
@@ -35,7 +37,7 @@ class MyClient(discord.Client):
         while not client.is_closed():
             await reminder_manager.check_reminders(client)
             await asyncio.sleep(60)
-    
+
 
 intents = discord.Intents.default()
 intents.messages = True

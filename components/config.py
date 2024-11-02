@@ -4,6 +4,7 @@ Copyright (c) 2024 @notV3NOM
 
 See the README.md file for licensing and disclaimer information.
 """
+
 import os
 import logging
 
@@ -12,11 +13,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-logger = logging.getLogger('discord')
+logger = logging.getLogger("discord")
 
-GUILD = Object(id=os.getenv('SERVER_ID'))
-BOT_NAME = os.getenv('BOT_NAME')
-DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
+GUILD = Object(id=os.getenv("SERVER_ID"))
+BOT_NAME = os.getenv("BOT_NAME")
+DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
 LLM = os.environ.get("LLM")
 
@@ -53,17 +54,16 @@ print("Hello")
 You were created by Venom (discord <@418441304184193036>).
 """
 
-BOT_TIMING = { "start_time": None }
+BOT_TIMING = {"start_time": None}
 
 CLOUDFLARE_ACCOUNT_ID = os.environ.get("CLOUDFLARE_ACCOUNT_ID")
 CLOUDFLARE_API_TOKEN = os.environ.get("CLOUDFLARE_API_TOKEN")
 
 SD_XL_BASE_URL = f"https://api.cloudflare.com/client/v4/accounts/{CLOUDFLARE_ACCOUNT_ID}/ai/run/@cf/stabilityai/stable-diffusion-xl-base-1.0"
+SCHNELL_BASE_URL = f"https://api.cloudflare.com/client/v4/accounts/{CLOUDFLARE_ACCOUNT_ID}/ai/run/@cf/black-forest-labs/flux-1-schnell"
 
-JINA_BASE_URL = 'https://r.jina.ai/'
-JINA_HEADERS = { 
-    "Accept": "application/json"
-}
+JINA_BASE_URL = "https://r.jina.ai/"
+JINA_HEADERS = {"Accept": "application/json"}
 
 REMINDER_ICON_URL = "https://cdn-icons-png.flaticon.com/512/10509/10509199.png"
 
@@ -80,7 +80,7 @@ EXTENSION_MAPPING = {
     "json": "json",
 }
 
-SEARXNG_BASE_URL = 'https://notv3nom-search.hf.space/'
+SEARXNG_BASE_URL = "https://notv3nom-search.hf.space/"
 SEARXNG_HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
 }

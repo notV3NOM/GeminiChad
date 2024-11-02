@@ -4,6 +4,7 @@ Copyright (c) 2024 @notV3NOM
 
 See the README.md file for licensing and disclaimer information.
 """
+
 PROMPT_TEMPLATE = """
 Answer the question based on the following context:
 
@@ -16,7 +17,7 @@ Just answer the question directly and dont start with 'Based on the given contex
 If you cannot find an answer, politely inform the user and suggest next steps.
 """
 
-SUMMARIZE_TEMPLATE ="""
+SUMMARIZE_TEMPLATE = """
 The following is text content from a webpage:
 
 {context}
