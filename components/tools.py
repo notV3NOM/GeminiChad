@@ -9,7 +9,9 @@ import requests
 import asyncio
 import aiohttp
 import time
+import sympy as sp
 
+from typing import List
 from datetime import datetime
 from bs4 import BeautifulSoup
 from markdown import markdown
@@ -53,7 +55,7 @@ async def run_searches(query):
     return search_results, search_result_urls
 
 
-def web_search(query: str):
+def web_search(query: str) -> List[str]:
     """
     Perform a web search and get the search results.
     With this tool, you have full access to the internet.
@@ -133,25 +135,47 @@ def truncate_content(content: str, max_length=2500):
     )
 
 
-def calculate(expression: str):
+def code_execution(code: str) -> str:
     """
-    Calculate/Solve a problem using python code execution.
-    This tool will generate and run python code to solve the problem or expression.
-    Use this tool to solve any problem asked by the user.
-    Use this tool to perform any calculation asked by the user.
+    Execute python code safely.
+    Always use this tool to execute any python code asked by the user.
+    Do not predict the results of any python code, instead use this tool and actually run the program to the results.
+    You can also you this tool to execute any python code you need.
 
     Args:
-        expression (str): A problem to be solved or a mathematical expression.
+        expression (str):  Code to be executed
 
     Returns:
-        result (str): Result of the problem or expression
+        result (str): Result of the python code
     """
-    logger.info(f"CALCULATE {expression}")
-    result = calc_model.generate_content(CALC_TEMPLATE.format(problem=expression))
+    logger.info(f"CODE EXECUTION {code}")
+    result = calc_model.generate_content(CALC_TEMPLATE.format(problem=code))
     return result.text
 
 
-def image_generation(prompt: str):
+def calculator(expression: str) -> str:
+    """
+    Calculate the result of an expression safely using sympy.
+    Use this tool to perform any calculation required.
+
+    Args:
+        expression: The expression to be calculated
+
+    Returns:
+        The expression and its result
+
+    """
+    logger.info(f"CALCULATION {expression}")
+    try:
+        expr = sp.sympify(expression)
+        result = expr.evalf()
+        return f"{expression} = {result}"
+    except (sp.SympifyError, ValueError) as e:
+        logger.error(e)
+        return "Calculation failed"
+
+
+def image_generation(prompt: str) -> str:
     """
     Generate an Image and return the path of the generated image.
     Use this tool to draw any kind of image like poster, album art or book covers etc.
@@ -195,7 +219,7 @@ def searxng(query: str, category="general") -> list:
     return search_results
 
 
-def clock():
+def clock() -> str:
     """
     Returns the current date and time as a string in 12-hour format with AM/PM.
     Use this tool to get the current date/time.

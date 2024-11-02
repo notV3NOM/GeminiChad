@@ -9,17 +9,18 @@ from collections import defaultdict
 
 from .config import DEFAULT_SYSTEM_MESSAGE
 from .llm import new_session
-from .tools import web_search, calculate, image_generation, clock
+from .tools import web_search, code_execution, calculator, image_generation, clock
 
 CHAT_SESSION = "CHAT_SESSION"
 SYSTEM_MESSAGE = "SYSTEM_MESSAGE"
 TOOLS = "TOOLS"
 
 TOOL_OPTIONS = {
-    "Web Search": web_search,
-    "Calculate": calculate,
-    "Image Generation": image_generation,
     "Clock": clock,
+    "Calculate": calculator,
+    "Web Search": web_search,
+    "Image Generation": image_generation,
+    "Code Execution": code_execution,
 }
 
 default_tools = [TOOL_OPTIONS[tool] for tool in TOOL_OPTIONS]

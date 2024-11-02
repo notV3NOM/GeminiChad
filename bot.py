@@ -21,7 +21,7 @@ from components.events import setup_event_handlers
 reminder_manager = ReminderManager()
 
 
-class MyClient(discord.Client):
+class GeminiChadBot(discord.Client):
     def __init__(self, *, intents: discord.Intents):
         super().__init__(intents=intents)
         self.tree = app_commands.CommandTree(self)
@@ -44,7 +44,7 @@ intents.messages = True
 intents.message_content = True
 intents.typing = True
 
-client = MyClient(intents=intents)
+client = GeminiChadBot(intents=intents)
 setup_commands(client, reminder_manager)
 setup_event_handlers(client)
 
