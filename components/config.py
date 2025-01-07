@@ -80,7 +80,7 @@ EXTENSION_MAPPING = {
     "json": "json",
 }
 
-SEARXNG_BASE_URL = "https://notv3nom-search.hf.space/"
+SEARXNG_BASE_URL = "https://shb777-search.hf.space/"
 SEARXNG_HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
 }
