@@ -5,6 +5,8 @@ It uses Gemini (Multimodal) and Cloudflare/Huggingface for Image Generation
 
 It has fallback messages for profanity
 
+https://github.com/user-attachments/assets/e39621d6-10b1-4c15-8489-5f8ac16cb2f4
+
 Commands -
 - /forget -> clear chat history
 - /info -> show info
